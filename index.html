@@ -1,140 +1,67 @@
 <!DOCTYPE html>
-<html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Présentation HTML5</title>
-		<style>
-			html {
-				scroll-behavior: smooth;
-			}
-			p {
-				text-align: center;
-			}
-			h1, h2 {
-				text-decoration: underline;
-			}
-			section, nav {
-				background-color: white;
-				border-radius: 0 20px 20px;
-				box-shadow: 2px 2px 10px black;
-				padding-bottom: 10px;				
-			}
-			table {
-				margin: 0 auto;
-			}
-			#footertext {
-				text-align: right;
-			}
-		</style>
+		<title>Using CSS</title>
+		<link rel="stylesheet" href="style.css">
 	</head>
-	<body style="background: linear-gradient(#e66465, #9198e5); background-repeat: no-repeat; background-attachment: fixed;">
-		<div style="width:50vw; margin: 0 auto;">
-		<header style="background-color: white; border-radius: 0 20px 20px; box-shadow: 2px 2px 10px black;">
-			<h1>HTML5 :</h1>
-			<p>Lors de la lecture de cet article, vous allez découvrir les <strong>nouveautés des standards HTML5</strong></p>
-		</header>
-		<nav>
-			<h2>Navigation :</h2>
-			<ul>
-				<li><a href="#struct">Structure de la page</a></li>
-				<li><a href="#audio">Lecture audio</a></li>
-				<li><a href="https://youtu.be/dQw4w9WgXcQ">Lecture vidéo</a></li>
-				<li><a href="#progress">Barre de progression</a></li>
-				<li><a href="#svg">Images au format SVG</a></li>
-				<li><a href="#form">Formulaires</a></li>
-			</ul>
-		</nav>
-		<article>
-			<section id="struct">
-				<h2>Structure de la page :</h2>
-				<p>Une page en HTML5 s'organise suivant ce schéma :</p>
-				<ol>
-					<li>header</li>
-					<li>nav</li>
-					<li>
-						article
-						<ul>
-							<li>section</li>
-							<li>section</li>
-							<li>...</li>
-						</ul>
-					</li>
-					<li>aside</li>
-					<li>footer</li>
-				</ol>
-				<p>Voici la description des éléments que je viens de vous citer :</p>
-				<table border="1">
-					<tr>
-						<td>header</td>
-						<td>Contient les informations du site, en général</td>
-					</tr>
-					<tr>
-						<td>nav</td>
-						<td>La barre avec les gros titres du site, pour se repérer rapidement</td>
-					</tr>
-					<tr>
-						<td>article</td>
-						<td>L'élément principal de la page, contient différentes sections, pour organiser les informations</td>
-					</tr>
-					<tr>
-						<td>aside</td>
-						<td>Information(s) complémentaire(s), soit mis sur le côté du site, soit en dessous de l'article</td>
-					</tr>
-					<tr>
-						<td>footer</td>
-						<td>Copyright et liens de contact / réseaux sociaux</td>
-					</tr>
-				</table>
-			</section>
-			<section id="audio">
-				<h2>Lecture audio / Frame : </h2>
-				<p>Normalement je suis censé vous montrer comment on peut jouer un fichier audio depuis le site internet.</p>
-				<p>Mais vu que j'ai aucune idée de où trouver un fichier audio, je vous ai directement mis un embedded vers SoundCloud.</p>
-				<p>Et j'en profite pour le dire : oui on peut aussi intégrer un petit site (frame) dedans, c'est aussi une fonctionnalité.</p>
-				<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/818876887&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-65080159" title="aha!" target="_blank" style="color: #cccccc; text-decoration: none;">aha!</a> · <a href="https://soundcloud.com/user-65080159/tchoupi-remix" title="Tchoupi Remix" target="_blank" style="color: #cccccc; text-decoration: none;">Tchoupi Remix</a></div>
-			</section>
-			<section id="video">
-				<h2>Lecture vidéo / Frame2 : </h2>
-				<p>On peut aussi jouer des vidéos comme vous vous en doutez.</p>
-				<p>Mais vu que <em>j'ai encore la flemme</em>, voilà une intégration de YouTube.</p>
-				<p>De toutes façons, tout le monde fait ça non ?</p>
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/jvds0ib84VA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="yt"></iframe>
-			</section>
-			<section id="progress">
-				<h2>Barre de progression :</h2>
-				<p>Normalement on utilise ça avec du JS, pour que ça bouge un peu.</p>
-				<p>Mais pour l'exemple et également pour vous frustrer, voilà une barre stuck à 99% :</p>
-				<progress max="100" value="99">999999999%</progress>
-				<p>Ou alors une jolie barre qui fait des allés-retours (si vous la regardez longtemps, au bout d'un moment il se passe un truc) :</p>
-				<progress></progress>
-			</section>
-			<section id="svg">
-				<h2>Images au format SVG :</h2>
-				<p>On peut dessiner des SVG et les afficher à l'écran. Mais vu que personne fait ça, je vais vous montrer directement comment on affiche un svg sous forme de fichier.</p>
-				<img src="https://www.svgrepo.com/show/390586/connection-internet-network-online-shop-shopping.svg" alt="Un joli svg" />
-			</section>
-			<section id="form">
-				<h2>Formulaires :</h2>
-				<p>Les formulaires ont de nouveaux types d'input, notamment pour faciliter l'autocompletion, ou d'autres trucs smart du genre.</p>
-			</section>
-		</article>
-		<aside>
-			<h2>Maintenant si vous voulez me soutenir, comme pour le site d'avant, je vous donne de quoi le faire.</h2>
-				<label for="name">Votre prénom : </label>
-				<input type="text" placeholder="Jean-Michel" required> <br />
-				<label for="gentil">Etes-vous gentil ? : </label>
-				<input type="checkbox" name="gentil" required> <br />
-				<label for="num">Votre numéro de téléphone : </label>
-				<input type="tel" name="num" placeholder="0788505269" required> <br />
-				<label for="genre">Quel genre êtes-vous ?</label> <br />
-				<input type="radio" name="genre" required> <label for="fille">Fille</label> <br />
-				<input type="radio" name="genre" required> <label for="garçon">Garçon</label> <br />
-				<input type="submit" value="Envoyer dans l'espace (not a RickRoll)">
-			</form>
-		</aside>
-		<footer>
-			<p id="footertext"><a href="https://github.com/Melestyl" target="_blank">@Melestyl</a>, 30/01/2022.</p>
-		</footer>
+	<body dir="ltr">
+		<div id="header">
+			<h1>Using external CSS</h1>
+		</div>
+		<div id="first" class="container">
+			<div class="bg"></div>
+			<div class="content">
+				<h1>Helps getting better at design.</h1>
+				<p>Labore duis aliquip id minim nostrud elit. Cupidatat Lorem nostrud ad aliqua ipsum cillum sit ipsum. Laborum duis deserunt aute labore. Velit officia excepteur in do deserunt. Magna exercitation consectetur cupidatat dolore deserunt adipisicing adipisicing est. Culpa qui cupidatat cupidatat sit consectetur exercitation sint occaecat fugiat proident culpa minim do. Et consequat tempor amet velit et pariatur magna do elit ad eu sint eiusmod est.</p>
+				<p>Quis mollit ea cillum esse et sit id tempor. In cillum occaecat ea non Lorem laborum minim id. Dolore qui incididunt labore minim pariatur tempor incididunt occaecat. Elit eiusmod ipsum cillum minim incididunt deserunt nostrud ipsum aliqua et. Laborum amet commodo reprehenderit Lorem. Ex mollit dolor ad commodo do reprehenderit anim ullamco veniam sint quis id qui sint.</p>
+			</div>
+		</div>
+		<div id="second" class="container">
+			<div class="bg"></div>
+			<div class="content">
+				<h1>Gives a better readability.</h1>
+				<p>Ea quis et tempor aliqua proident excepteur consectetur laborum dolor sit enim pariatur. Eiusmod veniam est tempor exercitation ea sint voluptate ullamco nisi consectetur. Elit magna voluptate ipsum nulla pariatur voluptate velit et veniam. Mollit velit ea anim exercitation ut eiusmod elit nisi dolore in commodo dolor id id. Ea proident cupidatat ipsum sit sit aliqua in.</p>
+			</div>
+		</div>
+		<div id="third" class="container">
+			<div class="bg"></div>
+			<div class="content">
+				<h1>Is nowadays standard.</h1>
+				<p>Do ullamco exercitation laborum cupidatat cillum ex proident ut ut ullamco. Amet nisi ad minim aliqua esse irure voluptate cupidatat consectetur. Ullamco sit deserunt esse proident consequat ex culpa. Nisi laboris cupidatat culpa sit labore do sit amet amet irure Lorem aliqua.
+
+Et pariatur amet enim sint ullamco. Lorem exercitation proident consequat et. Non enim aliqua laboris magna aliquip ex Lorem proident amet ut consequat. Non nostrud tempor fugiat non duis ea do consectetur consectetur incididunt labore minim ad pariatur. Duis est culpa ullamco eiusmod do consectetur. Officia labore aute sit nulla non nisi adipisicing cillum. Aliquip reprehenderit ad dolor officia cillum amet aute nostrud non ex ullamco nulla fugiat mollit.
+
+Velit reprehenderit culpa ullamco consectetur anim consectetur. Irure qui dolore laboris occaecat ex pariatur excepteur eu enim nulla Lorem Lorem id non. Elit sunt enim nulla voluptate sunt mollit.</p>
+			</div>
+		</div>
+		<div id="fourth" class="container">
+			<div class="bg"></div>
+			<div class="content">
+				<h1>Is past.</h1>
+				<p>Fugiat reprehenderit fugiat mollit ullamco tempor sint labore proident adipisicing. Labore ut commodo in ex amet deserunt deserunt consequat elit aute nostrud commodo. Ad Lorem deserunt dolore magna incididunt sunt esse nostrud culpa nisi nulla ullamco. Commodo qui laborum proident amet minim cupidatat ea aute veniam ullamco ex ipsum cupidatat. Commodo officia quis ad reprehenderit aliquip anim laboris.</p>
+				<h1>Is future.</h1>
+				<p>Occaecat reprehenderit minim est eiusmod nulla aliqua magna in elit proident ad aliqua ad aliquip. Ullamco et nisi reprehenderit irure veniam adipisicing sunt aute irure. Est commodo ex laborum adipisicing et mollit officia irure tempor veniam magna. Ea adipisicing tempor laborum eiusmod dolore. Aliquip magna ex qui laborum irure. Ex cillum do amet veniam nulla ullamco incididunt duis ea commodo minim anim.</p>
+			</div>
+		</div>
+		<div id="last" class="container">
+			<div class="bg"></div>
+			<div class="content">
+				<h1>And is the way it should be done.</h1>
+				<p>Anim occaecat incididunt commodo qui in commodo ex consectetur eu nostrud Lorem mollit amet mollit. Laboris aute fugiat eiusmod laborum ea labore officia amet irure quis cillum exercitation minim voluptate. Eiusmod anim nisi aliqua occaecat fugiat ipsum esse aliquip ut minim mollit do ex quis. Aute deserunt duis do nostrud occaecat do dolor ad duis velit. Commodo laboris laboris id sint qui velit minim nisi. Sunt deserunt quis non ex magna duis fugiat incididunt eu laboris. Incididunt id mollit officia eiusmod reprehenderit amet.
+
+Aliqua fugiat dolor consequat nulla do tempor nisi. Laborum duis anim occaecat est. Lorem nulla pariatur consequat magna. Lorem veniam eiusmod ullamco officia elit et sit nulla cillum ea. Laboris labore tempor fugiat enim irure ut.
+
+Exercitation duis aliqua aliquip cillum eiusmod duis occaecat cillum officia esse. Velit tempor consectetur consequat dolor nostrud sit dolor elit amet. Incididunt veniam ipsum cillum laboris pariatur ea amet deserunt nulla commodo. Exercitation deserunt commodo et voluptate anim sint do eu eu ex.
+
+Minim nisi eu sunt minim magna quis ex in ut ullamco. Ipsum id mollit pariatur irure adipisicing pariatur cupidatat excepteur consectetur ipsum laborum aute officia. Quis est pariatur velit reprehenderit magna amet ut minim magna quis proident. Id occaecat tempor culpa dolore laboris pariatur est aliquip quis exercitation consectetur Lorem adipisicing duis. Irure ea incididunt culpa cillum eiusmod aute cillum ex adipisicing dolor. Ex esse laboris ad enim aliqua excepteur sint labore quis.
+
+Sint consequat in eiusmod culpa elit minim sit ex officia aliqua proident enim voluptate proident. Cupidatat quis sint consequat do. Magna esse dolore cupidatat incididunt Lorem enim excepteur. Est officia reprehenderit minim occaecat non non veniam in reprehenderit aliquip aliquip proident commodo. Eiusmod ullamco anim ea minim elit excepteur proident non incididunt.</p>
+			</div>
+		</div>
+		<div id="footer" class="container">
+			<div class="content">
+				<p><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=1s&ab_channel=RickAstley" target="_blank" rel="noopener noreferrer">@Melestyl</a>, 02/02/2022.</p>
+			</div>
 		</div>
 	</body>
 </html>

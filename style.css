@@ -1,0 +1,122 @@
+body, html {
+	margin: 0;
+/* 	margin-top: -13px;
+ */	padding: 0;
+	height: 103vh;
+	overflow: hidden;
+}
+
+body {
+	background-color: black;
+	color: beige;
+	overflow: scroll;
+	height: 103vh;
+	scroll-snap-points-y: repeat(103vh);
+	scroll-snap-type: y mandatory;
+}
+
+#header {
+	display: flex;
+	width: 100%;
+	height: 103vh;
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(to bottom right, rgb(0, 0, 0), rgb(89, 55, 133));
+}
+
+#header h1 {
+	font-size: 100px;
+	margin: auto;
+	vertical-align: middle;
+	background: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #53fff4);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#header, .container {
+	height: 103vh;
+	scroll-snap-align: start;
+	position: relative;
+}
+
+.bg{
+	height: 100%;
+	width: 100%;
+	background-size:cover;
+	filter:blur(10px);
+	position: absolute;
+}
+
+.content {
+	position: absolute;
+}
+
+/* Bg list */
+#first .bg {
+	background-image: url("https://www.enjpg.com/img/2020/abstract-18.jpg");
+}
+
+#second .bg {
+	background-image: url("https://www.whatspaper.com/wp-content/uploads/2021/07/abstract-wallpaper-whatspaper-3.jpg");
+}
+
+#third .bg {
+	background-image: url("https://www.nawpic.com/media/2020/abstract-nawpic-20.jpg	");
+}
+
+#fourth .bg {
+	background-image: url("https://wallpapercave.com/wp/wp6621697.jpg");
+}
+
+#last .bg {
+	background-image: url("https://wallpaperaccess.com/full/1710073.jpg");
+}
+/* End of bg list */
+
+/* MAKES TEXT BIGGER */
+.content h1 {
+	font-size: 72px;
+	text-align: center;
+	margin-top: 10%;
+}
+
+.content p {
+	text-align: justify;
+	font-size: 25px;
+	margin: 50px;
+	padding: 5px;
+	border-radius: 25px;
+	background-color: rgba(89, 55, 133, 50%)
+}
+
+/* Text gradient list */
+#first .content h1 {
+	background: linear-gradient(to right top, #996784, #987594, #9882a1, #988fac, #9b9cb4, #91a5c7, #7db1d8, #5dbde2, #00cce4, #00d9c6, #00e087, #36e11c);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#second .content h1 {
+	background: linear-gradient(to right top, #304171, #006091, #007fa3, #009da2, #00b893, #00be9a, #00c5a1, #00cba8, #00bed0, #00aafb, #008eff, #5f5ffb);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#third .content h1 {
+	background: linear-gradient(to right top, #307160, #427f5c, #5c8b54, #7c964b, #a09e44, #be9b3c, #dd943f, #fb8b4e, #ff7467, #ff5e8c, #ff54bb, #fb5fee);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#fourth .content h1 {
+	background: linear-gradient(to right top, #71303e, #894938, #936836, #8f8a43, #7dac67, #7bbd78, #76ce8b, #6de0a1, #8ee68e, #b0eb7c, #d5ed6b, #fbed5f);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#last .content h1 {
+	background: linear-gradient(to right top, #64ebff, #93edff, #b8efff, #d6f2ff, #eef6ff, #f1f5ff, #f7f2ff, #fff0ff, #ffe1f4, #ffd6c8, #ffda8d, #fbed5f);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+/* End of gradient list */
