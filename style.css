@@ -1,49 +1,67 @@
-body, html {
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto&display=swap');
+
+html, body {
 	padding: 0;
 	margin: 0;
 }
 
 body {
-	background: linear-gradient(90deg, #446462 0%, #B45353 100%);
-}
-
-#container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	flex-wrap: wrap;
+	background: radial-gradient(99.62% 197% at 0.38% 0.39%, #FFDD63 0%, #FFFFFF 100%);
 	height: 100vh;
-}
-
-#container > div {
-	height: 350px;
-	width: 460px;
-	margin: auto 100px auto 100px;
-	background: linear-gradient(180deg, rgba(255, 184, 184, 0.49) 0%, rgba(208, 252, 255, 0.47) 100%);
-	border-radius: 75px;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	overflow: hidden;
 }
 
-p {
-	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-	color: white;
-	text-shadow: 5px 5px 2px #00000040;
-	font-size: 72px;
+body > div {
+	height: 90%;
+	width: 90%;
+	background-image: url("https://media.istockphoto.com/vectors/airplane-fly-out-logo-plane-taking-off-stylized-sign-vector-id1137971264?k=20&m=1137971264&s=612x612&w=0&h=_Mds3bkTPPoIBHsa9orqQCW6gO7dka96d3BJvdh7sHg="), url("https://store-images.s-microsoft.com/image/apps.51232.14176082463109974.f84fc39e-bc64-44f3-9851-edbbe1a9d810.d3b66324-8c44-4ac1-8df3-fc47485eb9f0?mode=scale&q=90&h=1080&w=1920");
+	background-repeat: no-repeat;
+	background-size: 10%, cover;
+	background-position: bottom right;
+	margin: auto;
+	border: 5px solid rgba(107, 107, 107, 0.3);
+	background-clip: padding-box;
 }
 
-p:first-letter {
-	color: red;
+div > div {
+	height: min(400px, 100%);
+	width: min(900px, 75%);
+	overflow: hidden;
+	line-height: 84px;
+	position: absolute;
+	left: 12.5%;
+	top: 14.3%;
 }
 
-#validator {
-	position: fixed;
-	bottom: 0px;
-	left: 0px;
-	padding: 0px;
-}
-
-#validator p {
+div > div > p {
 	margin: 0;
+	padding: 20px;
+	color: white;
+	font-size: min(72px, 6vw, 9vh);
+	font-family: 'Roboto', cursive;
+	text-transform: uppercase;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+#hol {
+	color: #7bcbce;
+	cursor: help;
+}
+
+#tom {
+	font-family: 'Righteous', cursive;
+	cursor: pointer;
+	user-select: none;
+	text-transform: none;
+}
+
+#validatorhtml, #validatorcss {
+	position: absolute;
+	margin: 0;
+	bottom: 0;
+}
+
+#validatorcss {
+	bottom: 40px;
 }
