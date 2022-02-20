@@ -1,88 +1,55 @@
-body, html {
-	margin: 0;
-	padding: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+html, body { margin: 0; }
 
 body {
-	background-color: #3A3E45;
+	background-image: url("https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29sb3JmdWwlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80");
+	background-size: cover;
 	height: 100vh;
 	overflow: hidden;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-}
-
-div {
-	height: 100px;
-	width: 200px;
-	background-color: #C4C4C4;
-	margin: auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	font-family: 'Montserrat', sans-serif;
 	font-size: 48px;
-	text-align: center;
-	padding: 50px;
-	user-select: none;
 }
 
-#color {
-	transition: background-color 1s, color 1s;
+#header {
+	height: 200px;
+	margin: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-#color:hover {
-	background-color: black;
-	color: white;
+#header div:first-of-type {
+	position: absolute;
+	height: 200px;
+	width: 80%;
+	background-color: aliceblue;
+	filter: opacity(50%) blur(5px);
+	border: 1px solid black;
+	border-radius: 30px;
 }
 
-#yeet {
-	transition: transform 1s;
+#header div:last-of-type {
+	position: absolute;
 }
 
-#yeet:hover {
-	transform: rotate(360deg);
+#content {
+	display: flex;
+	justify-content: space-around;
 }
 
-#shy {
-	transition: transform 1s;
+#content div:first-of-type {
+	height: 680px;
+	width: 465px;
+	background-image: url("https://media.discordapp.net/attachments/639081920050757633/945032156550406215/Screenshot_20220220_200019.png?width=453&height=662");
+	background-size: contain;
+	filter: sepia(100%) blur(1px);
 }
 
-#shy:hover {
-	transform: translate(-400px, 400px);
+p {
+	margin-top: 0px;
 }
 
-#fat {
-	transition: transform 1s;
-}
-
-#fat:hover {
-	transform: scale(5);
-}
-
-@keyframes zebi {
-	from {
-		background-color: #C4C4C4;
-		color: black;
-	}
-	to {
-		background-color: azure;
-		color: bisque;
-		transform: rotate(180deg) scale(0.5);
-	}
-}
-
-#zebi:hover {
-	animation-name: zebi;
-	animation-duration: 1s;
-	animation-fill-mode: forwards;
-}
-
-div:last-of-type {
-	transition: background-color 2s, padding 2s;
-}
-
-div:last-of-type:hover {
-	background-color: beige;
-	padding: 100px;
+p:last-of-type {
+	margin-top: -150px;
 }
