@@ -1,67 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto&display=swap');
-
-html, body {
-	padding: 0;
+body, html {
 	margin: 0;
+	padding: 0;
 }
 
 body {
-	background: radial-gradient(99.62% 197% at 0.38% 0.39%, #FFDD63 0%, #FFFFFF 100%);
+	background-color: #3A3E45;
 	height: 100vh;
+	overflow: hidden;
 	display: flex;
-	overflow: hidden;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
 }
 
-body > div {
-	height: 90%;
-	width: 90%;
-	background-image: url("https://media.istockphoto.com/vectors/airplane-fly-out-logo-plane-taking-off-stylized-sign-vector-id1137971264?k=20&m=1137971264&s=612x612&w=0&h=_Mds3bkTPPoIBHsa9orqQCW6gO7dka96d3BJvdh7sHg="), url("https://store-images.s-microsoft.com/image/apps.51232.14176082463109974.f84fc39e-bc64-44f3-9851-edbbe1a9d810.d3b66324-8c44-4ac1-8df3-fc47485eb9f0?mode=scale&q=90&h=1080&w=1920");
-	background-repeat: no-repeat;
-	background-size: 10%, cover;
-	background-position: bottom right;
+div {
+	height: 100px;
+	width: 200px;
+	background-color: #C4C4C4;
 	margin: auto;
-	border: 5px solid rgba(107, 107, 107, 0.3);
-	background-clip: padding-box;
-}
-
-div > div {
-	height: min(400px, 100%);
-	width: min(900px, 75%);
-	overflow: hidden;
-	line-height: 84px;
-	position: absolute;
-	left: 12.5%;
-	top: 14.3%;
-}
-
-div > div > p {
-	margin: 0;
-	padding: 20px;
-	color: white;
-	font-size: min(72px, 6vw, 9vh);
-	font-family: 'Roboto', cursive;
-	text-transform: uppercase;
-	background-color: rgba(0, 0, 0, 0.4);
-}
-
-#hol {
-	color: #7bcbce;
-	cursor: help;
-}
-
-#tom {
-	font-family: 'Righteous', cursive;
-	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 48px;
+	text-align: center;
+	padding: 50px;
 	user-select: none;
-	text-transform: none;
 }
 
-#validatorhtml, #validatorcss {
-	position: absolute;
-	margin: 0;
-	bottom: 0;
+#color {
+	transition: background-color 1s, color 1s;
 }
 
-#validatorcss {
-	bottom: 40px;
+#color:hover {
+	background-color: black;
+	color: white;
+}
+
+#yeet {
+	transition: transform 1s;
+}
+
+#yeet:hover {
+	transform: rotate(360deg);
+}
+
+#shy {
+	transition: transform 1s;
+}
+
+#shy:hover {
+	transform: translate(-400px, 400px);
+}
+
+#fat {
+	transition: transform 1s;
+}
+
+#fat:hover {
+	transform: scale(5);
+}
+
+@keyframes zebi {
+	from {
+		background-color: #C4C4C4;
+		color: black;
+	}
+	to {
+		background-color: azure;
+		color: bisque;
+		transform: rotate(180deg) scale(0.5);
+	}
+}
+
+#zebi:hover {
+	animation-name: zebi;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+div:last-of-type {
+	transition: background-color 2s, padding 2s;
+}
+
+div:last-of-type:hover {
+	background-color: beige;
+	padding: 100px;
 }
