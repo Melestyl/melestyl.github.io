@@ -3,19 +3,67 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>	
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Did you know that ?</title>
-		<link rel='stylesheet' href='style.css' type='text/css' media='screen' charset='utf-8'/>
+		<title>Bruh calculator</title>
+		<style type="text/css">
+			body {
+				background-color: rgb(31, 36, 44);
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				height: 100vh;
+				width: 50%;
+				margin: auto;
+				overflow: hidden;
+				color: aliceblue;
+			}
+		</style>
 		<script type="text/javascript">
-			var first = 5;
-			var second = 2;
-			var result = first + second;
-			alert("5 + 2 = " + result);
-			alert("Do you think 5<2 ? Press 'OK' to see");
-			alert("Is 5<2 ? The answer is " + 5<2);
-			alert(5+2<20 ? "My name is Tom" : "My password is BrUh")
+			var resRef;
+			function init() {
+				resRef = document.getElementById("res");
+			}
+			function add() {
+				var x = Number(prompt("Premier nombre :"));
+				var y = Number(prompt("Deuxième nombre :"));
+				var res = x + y;
+				resRef.innerHTML = "Result = " + res;
+				alert(x + " + " + y + " = " + res);
+			}
+			function sub() {
+				var x = Number(prompt("Premier nombre :"));
+				var y = Number(prompt("Deuxième nombre :"));
+				var res = x - y;
+				resRef.innerHTML = "Result = " + res;
+				alert(x + " - " + y + " = " + res);
+			}
+			function mult() {
+				var x = Number(prompt("Premier nombre :"));
+				var y = Number(prompt("Deuxième nombre :"));
+				var res = x * y;
+				resRef.innerHTML = "Result = " + res;
+				alert(x + " * " + y + " = " + res);
+			}
+			function divi() {
+				var x = Number(prompt("Premier nombre :"));
+				var y = Number(prompt("Deuxième nombre :"));
+				if (y != 0) {
+					var res = x / y;
+					resRef.innerHTML = "Result = " + res;
+					alert(x + " / " + y + " = " + res);
+				}
+				else {
+					resRef.innerHTML = "Result = ±∞";
+					alert("Impossible de diviser par 0");
+				}
+			}
 		</script>
 	</head>
-	<body>
-		<h1>I'm sure you didn't. (you are free to leave now)</h1>
+	<body onload="init();">
+		<input type="button" value="Add" onclick="add();" />
+		<input type="button" value="Substract" onclick="sub();" />
+		<input type="button" value="Multiply" onclick="mult();" />
+		<input type="button" value="Divide" onclick="divi();" />
+		<div id="res">Result = 0</div>
 	</body>
 </html>
+<!-- @Melestyl, 27/02/2022 -->
