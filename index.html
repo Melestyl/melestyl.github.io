@@ -40,6 +40,7 @@
 				this.delete = function () {
 					var node = document.getElementById(this.id);
 					node.parentNode.removeChild(node);
+					delete personArr[this.id];
 				}
 			}
 
@@ -60,6 +61,16 @@
 										</tr>"
 				personArr.push(person);
 			}
+
+			function show() {
+				for (var i=0; i<personArr.length; i++)
+					try {
+						console.log("id: " + personArr[i].id + " | name: " + personArr[i].name + " | age: " + personArr[i].age + " | gender: " + personArr[i].gender);
+					}
+					catch {
+						continue;
+					}
+			}
 		</script>
 		<style type="text/css">
 			tbody > tr:nth-child(odd) {
@@ -74,6 +85,7 @@
 	<body onload="init();">
 		<h1>Who are you ?</h1>
 		<input type="button" value="Add person" onclick="add();" />
+		<input type="button" value="Print to the console" onclick="show();" />
 		<table style="width:100%" border="1">
 			<thead>
 				<tr>
