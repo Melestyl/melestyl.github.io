@@ -3,67 +3,93 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>	
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Bruh calculator</title>
-		<style type="text/css">
-			body {
-				background-color: rgb(31, 36, 44);
-				display: flex;
-				justify-content: space-around;
-				align-items: center;
-				height: 100vh;
-				width: 50%;
-				margin: auto;
-				overflow: hidden;
-				color: aliceblue;
-			}
-		</style>
+		<title>Who are you ?</title>
 		<script type="text/javascript">
-			var resRef;
+			var tableRef;
+			var personArr = new Array();
+
 			function init() {
-				resRef = document.getElementById("res");
+				tableRef = document.getElementById("table");
+				if (confirm("Do you want to see the footer ?"))
+					document.getElementById("footer").innerHTML = "<a href=\"https://github.com/Melestyl\">@Melestyl</a>, 28/02/2022";
 			}
+
+			function Person(name, age, gender, id) {
+				this.name = name;
+				this.age = age;
+				this.gender = gender;
+				this.id = id;
+				this.modify = function () {
+					var new_name = prompt("Enter new name :");
+					if (new_name != null && new_name != "") this.name = new_name;
+
+					var new_age = Number(prompt("Enter " + this.name + "'s new age :"));
+					if (!isNaN(new_age) && new_age > 0) this.age = new_age;
+
+					var new_gender = prompt("What's their gender ?");
+					if (new_gender != null && new_gender != "") this.gender = new_gender;
+
+					document.getElementById(this.id).innerHTML = "<td>"+this.name+"</td> \
+																<td>"+this.age+"</td> \
+																<td>"+this.gender+"</td> \
+																<td> \
+																	<input type=\"button\" value=\"Change\" onclick=\"personArr["+this.id+"].modify();\" /> \
+																	<input type=\"button\" value=\"Delete\" onclick=\"personArr["+this.id+"].delete();\" /> \
+																</td>"
+				}
+				this.delete = function () {
+					var node = document.getElementById(this.id);
+					node.parentNode.removeChild(node);
+				}
+			}
+
 			function add() {
-				var x = Number(prompt("Premier nombre :"));
-				var y = Number(prompt("Deuxième nombre :"));
-				var res = x + y;
-				resRef.innerHTML = "Result = " + res;
-				alert(x + " + " + y + " = " + res);
-			}
-			function sub() {
-				var x = Number(prompt("Premier nombre :"));
-				var y = Number(prompt("Deuxième nombre :"));
-				var res = x - y;
-				resRef.innerHTML = "Result = " + res;
-				alert(x + " - " + y + " = " + res);
-			}
-			function mult() {
-				var x = Number(prompt("Premier nombre :"));
-				var y = Number(prompt("Deuxième nombre :"));
-				var res = x * y;
-				resRef.innerHTML = "Result = " + res;
-				alert(x + " * " + y + " = " + res);
-			}
-			function divi() {
-				var x = Number(prompt("Premier nombre :"));
-				var y = Number(prompt("Deuxième nombre :"));
-				if (y != 0) {
-					var res = x / y;
-					resRef.innerHTML = "Result = " + res;
-					alert(x + " / " + y + " = " + res);
-				}
-				else {
-					resRef.innerHTML = "Result = ±∞";
-					alert("Impossible de diviser par 0");
-				}
+				var name = prompt("Enter the person's name :");
+				if (name == null || name == "") return;
+				do { var age = Number(prompt("Enter " + name + "'s age :")) } while(isNaN(age) || age <= 0);
+				do { var gender = prompt("What's their gender ?") } while (gender == null || gender == "");
+				var person = new Person(name, age, gender, personArr.length);
+				tableRef.innerHTML  += "<tr id=\""+personArr.length+"\" class=\""+ (personArr.length %2 == 0 ? "even" : "odd") +"\"> \
+											<td>"+person.name+"</td> \
+											<td>"+person.age+"</td> \
+											<td>"+person.gender+"</td> \
+											<td> \
+												<input type=\"button\" value=\"Change\" onclick=\"personArr["+personArr.length+"].modify();\" /> \
+												<input type=\"button\" value=\"Delete\" onclick=\"personArr["+personArr.length+"].delete();\" /> \
+											</td> \
+										</tr>"
+				personArr.push(person);
 			}
 		</script>
+		<style type="text/css">
+			tbody > tr:nth-child(odd) {
+    			background-color: aliceblue;
+			}
+			tbody > tr:nth-child(even) {
+    			background-color: lightgray;
+			}
+
+		</style>
 	</head>
 	<body onload="init();">
-		<input type="button" value="Add" onclick="add();" />
-		<input type="button" value="Substract" onclick="sub();" />
-		<input type="button" value="Multiply" onclick="mult();" />
-		<input type="button" value="Divide" onclick="divi();" />
-		<div id="res">Result = 0</div>
+		<h1>Who are you ?</h1>
+		<input type="button" value="Add person" onclick="add();" />
+		<table style="width:100%" border="1">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Gender</th>
+					<th>Change</th>
+				  </tr>
+			</thead>
+			<tbody id="table"></tbody>
+			<!-- <tr>
+			  <td>Alfreds Futterkiste</td>
+			  <td>23</td>
+			  <td>Man</td>
+			</tr> -->
+		</table>
+		<p id="footer"><!-- @Melestyl, 28/02/2022 --></p>
 	</body>
 </html>
-<!-- @Melestyl, 27/02/2022 -->
