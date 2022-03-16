@@ -1,107 +1,144 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="fr">
 	<head>	
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Who are you ?</title>
-		<script type="text/javascript">
-			var tableRef;
-			var personArr = new Array();
+		<title>Admin image viewer</title>
+		<style>
+			body {
+				margin: 0;
+			}
+
+			#first_step {
+				background-color: rgb(23, 29, 41);
+				color: azure;
+				height: 100vh;
+				overflow: hidden;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+			}
+
+			form {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			input {
+				margin: 5px;
+				padding: 10px;
+			}
+
+			#second_step {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				height: 100vh;
+				overflow: hidden;
+				background-color: rgb(23, 29, 41);
+			}
+
+			#second_step {
+				display: none;
+			}
+
+			img {
+				max-height: 90%;
+				max-width: 80%;
+			}
+
+			#left, #right {
+				height: 50px;
+				width: 50px;
+				background-color: beige;
+				border-radius: 10px;
+				text-align: center;
+				vertical-align: bottom;
+				line-height: 50px;
+				user-select: none;
+			}
+
+			#left {
+				margin-left: 20px;
+			}
+			#right {
+				margin-right: 20px;
+			}
+		</style>
+		<script>
+			var refFirst, refSecond, refNick, refPass, refLeft, refRight, refImage;
+			var alreadyPrinted = false;
+
+			var imgs = new Array;
+			imgs.links = [ /* !! None of the images is mine !! */
+				"https://images5.alphacoders.com/432/thumb-1920-432951.jpg",
+				"https://voyage-onirique.com/wp-content/uploads/2020/03/backiee-138908-landscape-scaled.jpg",
+				"https://images.unsplash.com/photo-1563008887-170b34916b21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGF5c2FnZXxlbnwwfHwwfHw%3D&w=1000&q=80",
+				"https://voyage-onirique.com/wp-content/uploads/2019/01/WallpaperStudio10Mont-st-michel-211506-1920x1080.jpg",
+				"https://i.pinimg.com/originals/2a/e3/1e/2ae31ef48e226c6b3bf738598df38a5d.png",
+				"https://fotomelia.com/wp-content/uploads/edd/2015/05/fond-d-%C3%A9ran-hd-wallpaper-paysage-coucher-de-soleil-sunset-images-gratuites-1560x878.png",
+			]
+			imgs.current = 0;
+			imgs.before = function () {
+				if (imgs.current == 0)
+					imgs.current = imgs.links.length;
+				return --imgs.current;
+			}
+			imgs.after = function () {
+				if (imgs.current == imgs.links.length - 1)
+					imgs.current = -1;
+				return ++imgs.current;
+			}
 
 			function init() {
-				tableRef = document.getElementById("table");
-				if (confirm("Do you want to see the footer ?"))
-					document.getElementById("footer").innerHTML = "<a href=\"https://github.com/Melestyl\">@Melestyl</a>, 28/02/2022";
+				refFirst = document.getElementById("first_step");
+				refSecond = document.getElementById("second_step");
+				refNick = document.getElementById("nickname");
+				refPass = document.getElementById("password");
+				refLeft = document.getElementById("left");
+				refRight = document.getElementById("right");
+				refImage = document.getElementById("image");
+
+				refLeft.addEventListener("click", function () {
+					refImage.src = imgs.links[imgs.before()];
+					/* console.log(imgs.before()); */
+				})
+				refRight.addEventListener("click", function () {
+					refImage.src = imgs.links[imgs.after()];
+					/* console.log(imgs.after()); */
+				})
 			}
 
-			function Person(name, age, gender, id) {
-				this.name = name;
-				this.age = age;
-				this.gender = gender;
-				this.id = id;
-				this.modify = function () {
-					var new_name = prompt("Enter new name :");
-					if (new_name != null && new_name != "") this.name = new_name;
-
-					var new_age = Number(prompt("Enter " + this.name + "'s new age :"));
-					if (!isNaN(new_age) && new_age > 0) this.age = new_age;
-
-					var new_gender = prompt("What's their gender ?");
-					if (new_gender != null && new_gender != "") this.gender = new_gender;
-
-					document.getElementById(this.id).innerHTML = "<td>"+this.name+"</td> \
-																<td>"+this.age+"</td> \
-																<td>"+this.gender+"</td> \
-																<td> \
-																	<input type=\"button\" value=\"Change\" onclick=\"personArr["+this.id+"].modify();\" /> \
-																	<input type=\"button\" value=\"Delete\" onclick=\"personArr["+this.id+"].delete();\" /> \
-																</td>"
+			function verify() {
+				if (refNick.value === "admin" && refPass.value === "root") {
+					refFirst.style.display = "none";
+					refSecond.style.display = "flex";
 				}
-				this.delete = function () {
-					var node = document.getElementById(this.id);
-					node.parentNode.removeChild(node);
-					delete personArr[this.id];
+				else {
+					if (!alreadyPrinted) {
+						var warning = document.createElement("p");
+						warning.innerHTML = "Mauvais identifiant ou mot de passe.";
+						warning.style.color = "red";
+						refFirst.appendChild(warning);
+						alreadyPrinted = true;
+					}
 				}
-			}
-
-			function add() {
-				var name = prompt("Enter the person's name :");
-				if (name == null || name == "") return;
-				do { var age = Number(prompt("Enter " + name + "'s age :")) } while(isNaN(age) || age <= 0);
-				do { var gender = prompt("What's their gender ?") } while (gender == null || gender == "");
-				var person = new Person(name, age, gender, personArr.length);
-				tableRef.innerHTML  += "<tr id=\""+personArr.length+"\" class=\""+ (personArr.length %2 == 0 ? "even" : "odd") +"\"> \
-											<td>"+person.name+"</td> \
-											<td>"+person.age+"</td> \
-											<td>"+person.gender+"</td> \
-											<td> \
-												<input type=\"button\" value=\"Change\" onclick=\"personArr["+personArr.length+"].modify();\" /> \
-												<input type=\"button\" value=\"Delete\" onclick=\"personArr["+personArr.length+"].delete();\" /> \
-											</td> \
-										</tr>"
-				personArr.push(person);
-			}
-
-			function show() {
-				for (var i=0; i<personArr.length; i++)
-					try {
-						console.log("id: " + personArr[i].id + " | name: " + personArr[i].name + " | age: " + personArr[i].age + " | gender: " + personArr[i].gender);
-					}
-					catch {
-						continue;
-					}
 			}
 		</script>
-		<style type="text/css">
-			tbody > tr:nth-child(odd) {
-    			background-color: aliceblue;
-			}
-			tbody > tr:nth-child(even) {
-    			background-color: lightgray;
-			}
-
-		</style>
 	</head>
 	<body onload="init();">
-		<h1>Who are you ?</h1>
-		<input type="button" value="Add person" onclick="add();" />
-		<input type="button" value="Print to the console" onclick="show();" />
-		<table style="width:100%" border="1">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Age</th>
-					<th>Gender</th>
-					<th>Change</th>
-				  </tr>
-			</thead>
-			<tbody id="table"></tbody>
-			<!-- <tr>
-			  <td>Alfreds Futterkiste</td>
-			  <td>23</td>
-			  <td>Man</td>
-			</tr> -->
-		</table>
-		<p id="footer"><!-- @Melestyl, 28/02/2022 --></p>
+		<div id="first_step">
+			<form action="#" onsubmit="verify();return false"> <!-- VSCode dit qu'il y a une erreur ici. "return ne peut être utilisé que dans une fonction". Mais ça marche quand même -->
+				Identifiant : <input type="text" id="nickname" placeholder="admin" required />
+				Mot de passe : <input type="password" id="password" placeholder="root" required />
+				<input type="submit" value="Se connecter">
+			</form>
+		</div>
+		<div id="second_step">
+			<div id="left">&lt;</div>
+			<img src="https://images5.alphacoders.com/432/thumb-1920-432951.jpg" alt="image" id="image" />
+			<div id="right">></div>
+		</div>
 	</body>
 </html>
