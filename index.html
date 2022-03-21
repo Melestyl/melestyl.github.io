@@ -3,135 +3,14 @@
 	<head>	
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Admin image viewer</title>
-		<style>
-			body {
-				margin: 0;
-			}
-
-			#first_step {
-				background-color: rgb(23, 29, 41);
-				color: azure;
-				height: 100vh;
-				overflow: hidden;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				flex-direction: column;
-			}
-
-			form {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-			}
-
-			input {
-				margin: 5px;
-				padding: 10px;
-			}
-
-			#second_step {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				height: 100vh;
-				overflow: hidden;
-				background-color: rgb(23, 29, 41);
-			}
-
-			#second_step {
-				display: none;
-			}
-
-			img {
-				max-height: 90%;
-				max-width: 80%;
-			}
-
-			#left, #right {
-				height: 50px;
-				width: 50px;
-				background-color: beige;
-				border-radius: 10px;
-				text-align: center;
-				vertical-align: bottom;
-				line-height: 50px;
-				user-select: none;
-			}
-
-			#left {
-				margin-left: 20px;
-			}
-			#right {
-				margin-right: 20px;
-			}
-		</style>
-		<script>
-			var refFirst, refSecond, refNick, refPass, refLeft, refRight, refImage;
-			var alreadyPrinted = false;
-
-			var imgs = new Array;
-			imgs.links = [ /* !! None of the images is mine !! */
-				"https://images5.alphacoders.com/432/thumb-1920-432951.jpg",
-				"https://voyage-onirique.com/wp-content/uploads/2020/03/backiee-138908-landscape-scaled.jpg",
-				"https://images.unsplash.com/photo-1563008887-170b34916b21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGF5c2FnZXxlbnwwfHwwfHw%3D&w=1000&q=80",
-				"https://voyage-onirique.com/wp-content/uploads/2019/01/WallpaperStudio10Mont-st-michel-211506-1920x1080.jpg",
-				"https://i.pinimg.com/originals/2a/e3/1e/2ae31ef48e226c6b3bf738598df38a5d.png",
-				"https://fotomelia.com/wp-content/uploads/edd/2015/05/fond-d-%C3%A9ran-hd-wallpaper-paysage-coucher-de-soleil-sunset-images-gratuites-1560x878.png",
-			]
-			imgs.current = 0;
-			imgs.before = function () {
-				if (imgs.current == 0)
-					imgs.current = imgs.links.length;
-				return --imgs.current;
-			}
-			imgs.after = function () {
-				if (imgs.current == imgs.links.length - 1)
-					imgs.current = -1;
-				return ++imgs.current;
-			}
-
-			function init() {
-				refFirst = document.getElementById("first_step");
-				refSecond = document.getElementById("second_step");
-				refNick = document.getElementById("nickname");
-				refPass = document.getElementById("password");
-				refLeft = document.getElementById("left");
-				refRight = document.getElementById("right");
-				refImage = document.getElementById("image");
-
-				refLeft.addEventListener("click", function () {
-					refImage.src = imgs.links[imgs.before()];
-					/* console.log(imgs.before()); */
-				})
-				refRight.addEventListener("click", function () {
-					refImage.src = imgs.links[imgs.after()];
-					/* console.log(imgs.after()); */
-				})
-			}
-
-			function verify() {
-				if (refNick.value === "admin" && refPass.value === "root") {
-					refFirst.style.display = "none";
-					refSecond.style.display = "flex";
-				}
-				else {
-					if (!alreadyPrinted) {
-						var warning = document.createElement("p");
-						warning.innerHTML = "Mauvais identifiant ou mot de passe.";
-						warning.style.color = "red";
-						refFirst.appendChild(warning);
-						alreadyPrinted = true;
-					}
-				}
-			}
-		</script>
+		<link href="style.css" rel="stylesheet"/>
+		<script src="script.js"></script>
 	</head>
 	<body onload="init();">
 		<div id="first_step">
 			<form action="#" onsubmit="verify();return false"> <!-- VSCode dit qu'il y a une erreur ici. "return ne peut être utilisé que dans une fonction". Mais ça marche quand même -->
-				Identifiant : <input type="text" id="nickname" placeholder="admin" required />
-				Mot de passe : <input type="password" id="password" placeholder="root" required />
+				<label for="nickname">Identifiant : </label><input type="text" id="nickname" placeholder="admin" required />
+				<label for="password">Mot de passe : </label><input type="password" id="password" placeholder="root" required />
 				<input type="submit" value="Se connecter">
 			</form>
 		</div>
