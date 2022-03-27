@@ -1,40 +1,160 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!-- @Melestyl, 2022/03/TODO: -->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
-	<head>	
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>ATTAQUER GOBLIN</title>
-		<link rel="icon" href="https://wow.zamimg.com/uploads/screenshots/normal/926010-ingenieur-gobelin.jpg" />
-		<link href="styles.css" rel="stylesheet" type="text/css" />
-		<script src="scripts.js" type="text/javascript"></script>
-	</head>
-	<body onload="init()">
-		<div id="nickdiv">
-			<h1>Quel sera votre nom durant l'aventure ?</h1>
-			<label for="nick">Nom</label><input type="text" id="nick" />
-			<br />
-			<input type="button" value="C'est parti." id="letsgo" onclick="startGame()"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Amazing app V2</title>
+	<style>
+		@import url(//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,800;1,400;1,800&display=swap);
+
+		body {
+			margin: 0;
+			font-family: "Open Sans Light",serif;
+		}
+		header {
+			background-color: #294c62;
+			color: white;
+			text-align: center;
+			padding: 50px;
+		}
+		header h1 {
+			font-size: 72px;
+			margin: 0;
+		}
+		header h2 {
+			font-weight: 400;
+		}
+		.btn {
+			padding: 10px 20px;
+			display: inline-block;
+			background-color: #579d9f;
+			color: white;
+			border-radius: 2px;
+			text-decoration: none;
+			font-weight: 800;
+			transition: all 0.1s;
+		}
+		.btn:hover {
+			background-color: azure;
+			box-shadow: 5px 5px 20px lightblue;
+			color: black;
+		}
+		.features {
+			padding: 40px 0;
+		}
+		.feature {
+			display: inline-block;
+			width: 32%;
+			text-align: center;
+		}
+		.container {
+			margin: 0 auto;
+		}
+		.feature img {
+			width: 40%;
+			margin: 0 0 10px;
+		}
+		.quote {
+			background-color: #579d9f;
+			padding: 20px 0;
+			text-align: center;
+			color: white;
+		}
+		.quote p {
+			font-size: large;
+			font-weight: bold;
+		}
+		.quote p:before {
+			content: "\"";
+		}
+		.quote p:after {
+			content: "\"";
+		}
+		cite:before {
+			content: "- ";
+		}
+		footer {
+			background-color: #353535;
+			color: white;
+			text-align: center;
+			padding: 30px 0;
+		}
+		footer ul {
+			list-style: none;
+			padding: 0px;
+		}
+		footer li {
+			display: inline;
+		}
+		footer a {
+			color: white;
+			text-decoration: none;
+		}
+		footer a:hover {
+			color: #d6fff7;
+		}
+		footer p {
+			color: #545454
+		}
+
+		@media screen and (max-width: 480px) {
+			header h1 {
+				font-size: 48px;
+			}
+			.btn {
+				display: block;
+			}
+			.feature {
+				display: block;
+				margin: 20px auto;
+			}
+			footer li {
+				display: block;
+				margin: 10px 0;
+			}
+		}
+	</style>
+</head>
+<body>
+<header>
+	<h1>Awesome App</h1>
+	<h2>This app will change your life!</h2>
+	<a class="btn" href="#">Download Now</a>
+</header>
+<section class="features">
+	<div class="container">
+		<div class="feature">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/WebStorm_Icon.png/1024px-WebStorm_Icon.png"
+			     alt="Webstorm Logo" />
+			<p>It was made using WebStorm</p>
 		</div>
-		<div id="gamediv">
-			<p id="text">Vous avez face à vous un ZEBI.</p>
-			<div id="card">
-				<div>
-					<img src="https://static.fnac-static.com/multimedia/FR/Images_Produits/FR/fnac.com/Zoom%20Produit%20technique/2/6/0/0885561160062/tsp20121030152047/Vivid-The-Hobbit-Figurine-Gobelin.jpg" alt="L'image de l'ennemi" id="enemyimg" />
-				</div>
-				<div id="actions">
-					<div>
-						<input type="button" value="Bruit" onclick="current.Sound();"/>
-						<input type="button" value="Description" onclick="current.Desc()"/>
-						<input type="button" value="Points de vie" onclick="current.Pv()"/>
-						<input type="button" value="ATTAQUER" onclick="current.Attack()"/>
-					</div>
-					<div id="output">
-						Description
-					</div>
-				</div>
-			</div>
+		<div class="feature">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png"
+			     alt="VSCode Logo" />
+			<p>But VSCode could have been used</p>
 		</div>
-		<div id="enddiv"></div>
-	</body>
+		<div class="feature">
+			<img src="https://blob.sololearn.com/avatars/sololearn.png"
+			     alt="SoloLearn Logo" />
+			<p>Thanks SoloLearn for all of their resources</p>
+		</div>
+	</div>
+</section>
+<section class="quote">
+	<blockquote>
+		<p>I've never been so alive !</p>
+		<cite>Melestyl</cite>
+	</blockquote>
+</section>
+<footer>
+	<div class="container">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">About</a></li>
+		</ul>
+		<p><a href="https://www.github.com/melestyl">@Melestyl</a>, 2022/03/26</p>
+	</div>
+</footer>
+</body>
 </html>
