@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,800;1,100;1,400;1,800&display=swap');
+
+body {
+	margin: 0;
+	background-color: #36393f;
+	color: aliceblue;
+	font-family: 'Montserrat', sans-serif;
+}
+
+#nav ul {
+	list-style: none;
+	text-align: center;
+	margin-top: 20px;
+}
+
+#nav li {
+	display: inline;
+	margin: 10px;
+	padding: 10px;
+	transition: all 1s, background-color 0.3s;
+}
+
+#nav a {
+	padding: 10px;
+}
+
+#nav li:hover {
+	text-decoration: underline;
+	background-color: #5bc4c4;
+}
+
+#nav a {
+	color: inherit;
+	text-decoration: none;
+}
+
+#card {
+	position: relative;
+	top: 25vh;
+	width: 25vw;
+	margin: auto;
+	text-align: center;
+	font-weight: 800;
+	font-size: 24px;
+}
+
+#card img {
+	max-height: 250px;
+	border-radius: 50%;
+}
+
+#nickname {
+	color: #5bc4c4;
+}
+
+#nickname:before, #nickname:after {
+	content: "\"";
+}
+
+#card ul {
+	list-style: none;
+	padding: 0;
+}
+
+#card li {
+	display: inline;
+}
+
+#card a {
+	text-decoration: none;
+	color: inherit;
+}
+
+#card i {
+	padding: 10px;
+	transition: margin 1s, transform 1s, text-shadow 1s;
+}
+
+#card i:hover {
+	margin: 0 10px 0 10px;
+	/*font-size: larger;*/
+	transform: scale(150%);
+	text-shadow: 1px 1px 5px #5bc4c4,
+				-1px -1px 5px #5bc4c4;
+}
+
+#wave {
+	position: relative;
+	top: 50vh;
+}
+
+#content {
+	position: relative;
+	top: 50vh;
+	background-color: #5f646e;
+	padding: 50px;
+}
+
+#content > div {
+	border: 1px solid;
+	border-radius: 50px;
+	padding: 50px;
+	margin-bottom: 20px;
+}
+
+#content h1 {
+	text-align: center;
+	text-decoration: #5bc4c4 underline;
+}
+
+.experience h2:before {
+	font-family: "Font Awesome 6 Pro", serif;
+	content: "\f058";
+	color: #5bc4c4;
+}
+
+.experience a {
+	color: inherit;
+}
+
+.experience .date {
+	font-weight: 100;
+}
