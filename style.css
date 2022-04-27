@@ -108,16 +108,26 @@ body {
 	text-decoration: #5bc4c4 underline;
 }
 
-.experience h2:before {
+.experience h2:before, .education h2:before {
 	font-family: "Font Awesome 6 Pro", serif;
 	content: "\f058";
 	color: #5bc4c4;
+	margin-right: 10px;
 }
 
-.experience a {
+.education .no-check:before {
+	content: "";
+	margin-right: 0;
+}
+
+.education .no-check i {
+	margin-right: 10px;
+}
+
+.experience a, .education a {
 	color: inherit;
 }
 
-.experience .date {
+.experience .date, .education .date {
 	font-weight: 100;
 }
