@@ -131,3 +131,26 @@ body {
 .experience .date, .education .date {
 	font-weight: 100;
 }
+
+.flexContainer {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.projet {
+	border: 1px solid #5bc4c4;
+	border-radius: 20px;
+	padding: 20px;
+	text-align: center;
+	background-color: #565b62;
+	width: 20%;
+	transition: transform 1s, box-shadow 1s;
+}
+
+.projet:hover {
+	transform: scale(1.1);
+	box-shadow: inset 2px 2px 5px #5bc4c4,
+				7px 5px 3px darkslategrey;
+}
