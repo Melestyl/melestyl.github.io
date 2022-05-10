@@ -154,3 +154,25 @@ body {
 	box-shadow: inset 2px 2px 5px #5bc4c4,
 				7px 5px 3px darkslategrey;
 }
+
+.skill {
+	border: 1px solid #5bc4c4;
+	border-radius: 20px;
+	padding: 10px;
+	text-align: center;
+	background-color: #565b62;
+	transition: transform 1s, box-shadow 1s;
+	user-select: none;
+}
+
+.skill:hover {
+	transform: scale(1.1);
+	box-shadow: inset 2px 2px 5px #5bc4c4,
+	7px 5px 3px darkslategrey;
+}
+
+#note {
+	position: absolute;
+	bottom: 1px;
+	left: 10px;
+}
